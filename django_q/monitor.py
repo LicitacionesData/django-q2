@@ -139,7 +139,6 @@ def save_task(task, broker: Broker):
                 hook=task.get("hook"),
                 args=task["args"],
                 kwargs=task["kwargs"],
-                cluster=task.get("cluster"),
                 started=task["started"],
                 stopped=task["stopped"],
                 result=task["result"],

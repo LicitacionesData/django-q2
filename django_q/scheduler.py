@@ -68,8 +68,6 @@ def scheduler(broker: Broker = None):
                     if type(args) is not tuple:
                         args = (args,)
                 q_options = kwargs.get("q_options", {})
-                if s.intended_date_kwarg:
-                    kwargs[s.intended_date_kwarg] = s.next_run.isoformat()
                 if s.hook:
                     q_options["hook"] = s.hook
                 # set up the next run time

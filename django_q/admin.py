@@ -36,7 +36,6 @@ class TaskAdmin(admin.ModelAdmin):
         "name",
         "group",
         "func",
-        "cluster",
         "started",
         "stopped",
         "time_taken",
@@ -54,7 +53,7 @@ class TaskAdmin(admin.ModelAdmin):
 
     search_fields = ("name", "func", "group")
     readonly_fields = []
-    list_filter = ("group", "cluster")
+    list_filter = ("group",)
 
     def get_readonly_fields(self, request, obj=None):
         """Set all fields readonly."""
@@ -68,7 +67,6 @@ class FailAdmin(admin.ModelAdmin):
         "name",
         "group",
         "func",
-        "cluster",
         "started",
         "stopped",
         "short_result",
@@ -80,7 +78,7 @@ class FailAdmin(admin.ModelAdmin):
 
     actions = [resubmit_task]
     search_fields = ("name", "func", "group")
-    list_filter = ("group", "cluster")
+    list_filter = ("group",)
     readonly_fields = []
 
     def get_readonly_fields(self, request, obj=None):
@@ -138,7 +136,7 @@ class ScheduleAdmin(admin.ModelAdmin):
                 url = reverse("admin:django_q_success_change", args=(obj.task_id,))
             else:
                 url = reverse("admin:django_q_failure_change", args=(obj.task_id,))
-            return format_html('<a href="{}">[{}]</a>', url, obj.task_name)
+            return format_html(f'<a href="{url}">[{obj.task_name}]</a>')
         return None
 
     get_last_run.allow_tags = True
