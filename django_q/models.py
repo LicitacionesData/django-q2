@@ -248,6 +248,9 @@ class Schedule(models.Model):
     country = models.CharField(
         max_length=50, choices=TYPE, default=TYPE[0][0], verbose_name=_("country")
     )
+    hidden = models.BooleanField(
+        default=False
+    )
 
     def calculate_next_run(self, next_run=None):
         # next run is always in UTC
