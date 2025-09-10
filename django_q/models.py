@@ -237,6 +237,8 @@ class Schedule(models.Model):
     ECUADOR = "ECU"
     PANAMA = "PAN"
     PERU = "PER"
+    BOLIVIA = "BOL"
+    PARAGUAY = "PAR"
     TYPE = (
         (COLOMBIA, _("COLOMBIA")),
         (CHILE, _("CHILE")),
@@ -244,6 +246,8 @@ class Schedule(models.Model):
         (ECUADOR, _("ECUADOR")),
         (PANAMA, _("PANAMA")),
         (PERU, _("PERU")),
+        (BOLIVIA, _("BOLIVIA")),
+        (PARAGUAY, _("PARAGUAY")),
     )
     country = models.CharField(
         max_length=50, choices=TYPE, default=TYPE[0][0], verbose_name=_("country")
