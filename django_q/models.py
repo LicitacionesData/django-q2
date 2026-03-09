@@ -238,7 +238,7 @@ class Schedule(models.Model):
     PANAMA = "PAN"
     PERU = "PER"
     BOLIVIA = "BOL"
-    PARAGUAY = "PAR"
+    PARAGUAY = "PRY"
     TYPE = (
         (COLOMBIA, _("COLOMBIA")),
         (CHILE, _("CHILE")),
